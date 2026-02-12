@@ -1,0 +1,71 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const BinResult = ({ result }) => {
+  if (!result || !result.data) {
+    return <div style={{ padding: '20px' }}>Aguardando dadossss...</div>;
+  }
+
+  // Pegamos todos os processadores (Endurance, Checkout, etc) dinamicamente
+  // Object.entries nos dá um array de [nome, conteúdo] -> ['binlookupEndurance', {responses: ...}]
+  const processors = Object.entries(result.data);
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>Dashboard Automático</h1>
+
+      {processors.map(([processorName, processorContent]) => {
+        // Transformamos as respostas em Array (igual fizemos antes)
+        const rows = processorContent.responses ? Object.values(processorContent.responses) : [];
+        
+        if (rows.length === 0) return null;
+
+        // Pegamos as chaves do primeiro item para fazer o cabeçalho da tabela
+        const columns = Object.keys(rows[0]);
+
+        return (
+          <div key={processorName} style={{ marginBottom: '50px' }}>
+            <h2 style={{ color: '#0056b3', textTransform: 'capitalize' }}>
+              {processorName.replace('binlookup', '')} ({rows.length} registros)
+            </h2>
+            
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#08121c', borderBottom: '2px solid #ddd' }}>
+                    {columns.map(col => (
+                      <th key={col} style={{ padding: '10px', textAlign: 'left', fontSize: '12px' }}>
+                        {col.toUpperCase().replace('_', ' ')}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row, index) => (
+                    <tr key={index} style={{ borderBottom: '1px solid #eee' }}>
+                      {columns.map(col => (
+                        <td key={col} style={{ padding: '10px', fontSize: '13px' }}>
+                          {/* Se o valor for um objeto, vira string, se não, exibe normal */}
+                          {typeof row[col] === 'object' ? JSON.stringify(row[col]) : String(row[col])}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// Como agora é tudo dinâmico, o PropType fica genérico (aceita qualquer objeto no data)
+BinResult.propTypes = {
+  result: PropTypes.shape({
+    data: PropTypes.object
+  }).isRequired
+};
+
+export default BinResult;

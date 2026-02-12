@@ -1,0 +1,7 @@
+{
+    "editor.hover.enabled": "onKeyboardModifier",
+    "editor.hover.sticky": false,
+    "editor.parameterHints.enabled": false,
+    "html.suggest.html5": false,
+    "editor.inlineSuggest.showToolbar": "always"
+}
