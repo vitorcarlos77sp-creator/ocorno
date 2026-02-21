@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Máquinas Pesadas - Agilidade e Confiança</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: #FFFFFF;
+            border-bottom: 4px solid #FFC107;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            background-color: #FFC107;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 2px;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1A1A1A;
+        }
+
+        .btn-primary {
+            background-color: #FFC107;
+            color: #1A1A1A;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFD54F;
+            box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+            transform: scale(1.05);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                height: 100vh;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        /* Divider */
+        .divider-yellow {
+            height: 5px;
+            background-color: #FFC107;
+            margin: 2rem 0;
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        section.bg-gray {
+            background-color: #F5F5F5;
+        }
+
+        section.bg-black {
+            background-color: #1A1A1A;
+            color: white;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+
+        section.bg-black h2 {
+            color: white;
+        }
+
+        section > .container > p:first-of-type {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+        }
+
+        section.bg-black > .container > p:first-of-type {
+            color: #ccc;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-2 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        @media (min-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Card */
+        .card {
+            background-color: white;
+            border-left: 5px solid #FFC107;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(255, 193, 7, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-button {
+            width: 100%;
+            background-color: #FFC107;
+            color: #1A1A1A;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+
+        .card-button:hover {
+            background-color: #FFD54F;
+        }
+
+        /* Step */
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background-color: #FFC107;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1A1A1A;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: #666;
+        }
+
+        /* Benefit */
+        .benefit {
+            background-color: white;
+            border-left: 4px solid #FFC107;
+            padding: 1.5rem;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #1A1A1A;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        /* Contact */
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            color: #FFC107;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        section.bg-black .contact-item .btn-primary {
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0A0A0A;
+            color: #999;
+            padding: 2rem 0;
+            border-top: 4px solid #FFC107;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer p:last-child {
+            font-size: 0.875rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-box">⚙️</div>
+                    <div class="logo-text">ALUGUEL DE MÁQUINAS</div>
+                </div>
+                <button class="btn-primary" onclick="handleWhatsApp()">
+                    <i class="fas fa-comment"></i> Orçamento
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero" style="background-image: url('https://private-us-east-1.manuscdn.com/sessionFile/83UoLQce1cLDIaAtSehaAV/sandbox/0OxSTix6LT2CLpGJkaQbSd-img-1_1770760816000_na1fn_YmFubmVyLWhlcm8ucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwJkV4cGlyZXM9MTc5ODc2MTYwMCZQb2xpY3k9ZXlKU1UwRXhYMjl3Y0d4bElqcDBjblZsTGpCMmNuSmxMbVY0Y0dWdVgzUjVjR1VpTENKRmRIbHdaU0k2SWpFMk9UQXhNakEwTWpJMU5qTTBNRFV5TURVeUlpd2lSRzl3YkdsbWFXTmhkR1ZUSWpwMGNuVmxMakIyY25KbExuTjJZeTlrZVhObGNuWmxjaUo5Jktldy1QYWlyLUlkPUsySFNGTkRKWE9VOVlTJlNpZ25hdHVyZT12UE9sWExWZXB0eGVWdHl1aWhuQmlIWUhwSEx+VmpVaVBpcy1waGtsV05reDJNRHlOTmtEMzVQaVRHNElWOFlpaUlWbDdJTmNBfm1BUllubjhDQTJWYTNsTFlZVHcxZkdjeFRsbklRcWplYXVzSE1KSng0S2J5V0pzUVFHNGdDQ1ZIUk9EclBUbGd6THdzSVRiTUE0ZjlZUUpwMkpXNmh+dFJFVFhrQmJFMzdQaFVpdFgwaXg4YkZwfkFLWTdLNUJveFpjSFN0MDZWVmtveDY4OFVQZmZzRzZLYUMtazdRclNVSzVwYzF3NUdmY3cxY1ptWHhpOUkwblE4Q1dFLVN6M0I3Q0xxRjdRSm1Wc2gweDc0RHVWdTR4fk9vbTFQZG1nfzJzYjc0ZWloczluOWFySXc2VFlncXRRNldKOEJSRGh0OWlSMVhOczJWeWlXdDRmdw__');">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aluguel de Máquinas Pesadas</h1>
+                <p>Com Agilidade e Confiança</p>
+                <p>Atendemos obras de pequeno, médio e grande porte</p>
+                <button class="btn-primary" onclick="handleWhatsApp()" style="font-size: 1rem; padding: 1rem 2rem;">
+                    <i class="fas fa-comment"></i> Solicitar Orçamento no WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider-yellow"></div>
+
+    <!-- Máquinas Disponíveis -->
+    <section>
+        <div class="container">
+            <h2>Máquinas Disponíveis</h2>
+            <p>Equipamentos modernos e bem mantidos para suas obras</p>
+            <div class="grid grid-2">
+                <div class="card">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/83UoLQce1cLDIaAtSehaAV/sandbox/0OxSTix6LT2CLpGJkaQbSd-img-2_1770760803000_na1fn_cmV0cm9lc2NhdmFkZWlyYQ.png" alt="Retroescavadeira" class="card-image">
+                    <div class="card-body">
+                        <div class="card-title">Retroescavadeira</div>
+                        <div class="card-text">Máquina versátil para escavação, compactação e movimentação de terra. Ideal para obras pequenas e médias.</div>
+                        <button class="card-button" onclick="handleWhatsApp('Retroescavadeira')">Pedir Orçamento</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/83UoLQce1cLDIaAtSehaAV/sandbox/0OxSTix6LT2CLpGJkaQbSd-img-3_1770760805000_na1fn_cGEtY2FycmVnYWRlaXJh.png" alt="Pá Carregadeira" class="card-image">
+                    <div class="card-body">
+                        <div class="card-title">Pá Carregadeira</div>
+                        <div class="card-text">Equipamento robusto para carregamento de materiais e movimentação em canteiros. Excelente produtividade.</div>
+                        <button class="card-button" onclick="handleWhatsApp('Pá Carregadeira')">Pedir Orçamento</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/83UoLQce1cLDIaAtSehaAV/sandbox/0OxSTix6LT2CLpGJkaQbSd-img-5_1770760802000_na1fn_Y2FjYW1iYQ.png" alt="Caçamba para Entulho" class="card-image">
+                    <div class="card-body">
+                        <div class="card-title">Caçamba para Entulho</div>
+                        <div class="card-text">Caminhão basculante para transporte e descarte de entulho. Serviço rápido e confiável.</div>
+                        <button class="card-button" onclick="handleWhatsApp('Caçamba para Entulho')">Pedir Orçamento</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/83UoLQce1cLDIaAtSehaAV/sandbox/0OxSTix6LT2CLpGJkaQbSd-img-4_1770760807000_na1fn_YmV0b25laXJh.png" alt="Betoneira" class="card-image">
+                    <div class="card-body">
+                        <div class="card-title">Betoneira</div>
+                        <div class="card-text">Equipamento para preparação de concreto e argamassa. Ideal para pequenos e médios projetos.</div>
+                        <button class="card-button" onclick="handleWhatsApp('Betoneira')">Pedir Orçamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider-yellow"></div>
+
+    <!-- Como Funciona -->
+    <section class="bg-gray">
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <p>Processo simples e rápido em 4 passos</p>
+            <div class="grid grid-3">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Entre em Contato</div>
+                    <div class="step-description">Envie uma mensagem pelo WhatsApp informando sua necessidade</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Informe a Máquina</div>
+                    <div class="step-description">Descreva o tipo de equipamento e o período de aluguel</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Receba Orçamento</div>
+                    <div class="step-description">Resposta rápida com valores e disponibilidade</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Entrega na Obra</div>
+                    <div class="step-description">Levamos o equipamento no local e horário desejado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider-yellow"></div>
+
+    <!-- Vantagens -->
+    <section>
+        <div class="container">
+            <h2>Nossas Vantagens</h2>
+            <p>Por que escolher a gente para suas obras</p>
+            <div class="grid grid-4">
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">Entrega Rápida</div>
+                    <div class="benefit-text">Disponibilidade imediata para suas obras</div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🔧</div>
+                    <div class="benefit-title">Equipamentos Revisados</div>
+                    <div class="benefit-text">Máquinas em perfeito estado de funcionamento</div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">💬</div>
+                    <div class="benefit-title">Atendimento WhatsApp</div>
+                    <div class="benefit-text">Contato direto e rápido com nossa equipe</div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">Preços Acessíveis</div>
+                    <div class="benefit-text">Melhor custo-benefício do mercado</div>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">📅</div>
+                    <div class="benefit-title">Flexibilidade</div>
+                    <div class="benefit-text">Aluguel diário, semanal ou mensal</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider-yellow"></div>
+
+    <!-- Contato -->
+    <section class="bg-black">
+        <div class="container">
+            <h2>Pronto para Alugar?</h2>
+            <p>Entre em contato conosco agora mesmo</p>
+            <div class="grid grid-3">
+                <div class="contact-item">
+                    <i class="fas fa-comment contact-icon"></i>
+                    <div class="contact-title">WhatsApp</div>
+                    <div class="contact-text">(11) 9 9999-9999</div>
+                    <button class="btn-primary" onclick="handleWhatsApp()">Enviar Mensagem</button>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <div class="contact-title">Localização</div>
+                    <div class="contact-text">Recife - PE</div>
+                    <div class="contact-text">Atendemos toda a região</div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock contact-icon"></i>
+                    <div class="contact-title">Horário</div>
+                    <div class="contact-text">Seg-Sex: 7h às 18h</div>
+                    <div class="contact-text">Sábado: 8h às 13h</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn-primary" onclick="handleWhatsApp()" style="font-size: 1rem; padding: 1rem 2rem;">
+                    <i class="fas fa-comment"></i> Solicitar Orçamento Agora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Aluguel de Máquinas Pesadas. Todos os direitos reservados.</p>
+            <p>Equipamentos de qualidade para suas obras com agilidade e confiança</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <button class="whatsapp-float" onclick="handleWhatsApp()" title="Enviar mensagem via WhatsApp">
+        <i class="fas fa-comment"></i>
+    </button>
+
+    <script>
+        function handleWhatsApp(machine) {
+            const message = machine
+                ? `Gostaria de alugar uma ${machine}. Qual é o valor e a disponibilidade?`
+                : "Olá! Gostaria de solicitar um orçamento para aluguel de máquinas pesadas.";
+            
+            const phoneNumber = "5511999999999"; // EDITAR: Substitua pelo seu número
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
+</body>
+</html>

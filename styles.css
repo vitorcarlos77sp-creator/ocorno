@@ -1,0 +1,476 @@
+/* Aluguel de Máquinas Pesadas - CSS Editável
+ * Design: Industrial Modernista
+ * Cores: Amarelo (#FFC107), Preto (#1A1A1A), Cinza (#4A4A4A)
+ * Tipografia: Bebas Neue (títulos), Inter (corpo)
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1A1A1A;
+    background-color: #FFFFFF;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #FFFFFF;
+    border-bottom: 4px solid #FFC107;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-box {
+    width: 48px;
+    height: 48px;
+    background-color: #FFC107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 2px;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1A1A1A;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #FFC107;
+    color: #1A1A1A;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #FFD54F;
+    box-shadow: 0 6px 16px rgba(255, 193, 7, 0.4);
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Hero Banner */
+.hero {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        height: 100vh;
+    }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+/* Divider */
+.divider-yellow {
+    height: 5px;
+    background-color: #FFC107;
+    margin: 2rem 0;
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+}
+
+section.bg-gray {
+    background-color: #F5F5F5;
+}
+
+section.bg-black {
+    background-color: #1A1A1A;
+    color: white;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+}
+
+section.bg-black h2 {
+    color: white;
+}
+
+section > .container > p:first-of-type {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+}
+
+section.bg-black > .container > p:first-of-type {
+    color: #ccc;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-2 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (min-width: 768px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (min-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-left: 5px solid #FFC107;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px rgba(255, 193, 7, 0.3);
+    transform: translateY(-4px);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.card-button {
+    width: 100%;
+    background-color: #FFC107;
+    color: #1A1A1A;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.card-button:hover {
+    background-color: #FFD54F;
+}
+
+/* Steps */
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 64px;
+    height: 64px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1A1A1A;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
+}
+
+.step-description {
+    color: #666;
+}
+
+/* Benefits */
+.benefit {
+    background-color: white;
+    border-left: 4px solid #FFC107;
+    padding: 1.5rem;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.benefit:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.benefit-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-text {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+/* Contact */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    color: #FFC107;
+    margin-bottom: 1rem;
+}
+
+.contact-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.contact-text {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+section.bg-black .contact-item .btn-primary {
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #0A0A0A;
+    color: #999;
+    padding: 2rem 0;
+    border-top: 4px solid #FFC107;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer p:last-child {
+    font-size: 0.875rem;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
